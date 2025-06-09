@@ -9,23 +9,29 @@ lazy val chapter02 = project
   .settings(
     scalaVersion := ScalaVersion,
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
-      "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
-      "ch.qos.logback" % "logback-classic" % LogbackVersion,
-      "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test,
-      "org.scalatest" %% "scalatest" % ScalaTest % Test,
-    )
-  )
+        "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
+        "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
+        "ch.qos.logback" % "logback-classic" % LogbackVersion,
+        "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test,
+        "org.scalatest" %% "scalatest" % ScalaTest % Test))
 
 lazy val chapter03 = project
   .in(file("chapter03"))
   .settings(
     scalaVersion := ScalaVersion,
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
-      "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
-      "ch.qos.logback" % "logback-classic" % LogbackVersion,
-      "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test,
-      "org.scalatest" %% "scalatest" % ScalaTest % Test,
-    )
-  )
+        "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
+        "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
+        "ch.qos.logback" % "logback-classic" % LogbackVersion,
+        "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test,
+        "org.scalatest" %% "scalatest" % ScalaTest % Test))
+
+lazy val chapter04 = project
+  .in(file("chapter04"))
+  .settings(
+    scalaVersion := ScalaVersion,
+    libraryDependencies ++= Seq(
+        "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
+        "ch.qos.logback" % "logback-classic" % LogbackVersion,
+        "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test,
+        "org.scalatest" %% "scalatest" % ScalaTest % Test))
