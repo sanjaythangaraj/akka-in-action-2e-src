@@ -1,7 +1,7 @@
 package routers
 
-import akka.actor.typed.{ActorRef, Behavior}
-import akka.actor.typed.scaladsl.{Behaviors, Routers}
+import akka.actor.typed.{ ActorRef, Behavior }
+import akka.actor.typed.scaladsl.{ Behaviors, Routers }
 
 object Manager {
   def apply(behavior: Behavior[String]): Behavior[Unit] =
