@@ -61,6 +61,27 @@ class GroupRouterSpec
       photoProcessor2.receiveMessages(1)
     }
 
+    "will send messages with same id to the same aggregator" in {
+      // Given there are two Aggregators
+
+      val probe1 = TestProbe[Aggregator.Event]
+      val probe2 = TestProbe[Aggregator.Event]
+
+      spawn(Aggregator(forwardTo = probe1.ref), "aggregator1")
+      spawn(Aggregator(forwardTo = probe2.ref), "aggregator2")
+
+      val dataObfuscator = spawn(DataObfuscator(), "wa-1")
+      val dataEnricher = spawn(DataEnricher(), "wb-1")
+
+      // when a message with same id is sent to different actors
+      dataObfuscator ! DataObfuscator.Message("123", "Text")
+      dataEnricher ! DataEnricher.Message("123", "Text")
+      dataObfuscator ! DataObfuscator.Message("123", "Text2")
+      dataEnricher ! DataEnricher.Message("123", "Text2")
+
+      // Then one aggregator receives both while the other receives none
+      probe1.receiveMessage().id shouldBe probe1.receiveMessage().id
+    }
 
   }
 }
