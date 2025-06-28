@@ -1,0 +1,3 @@
+package countwords
+
+trait CborSerializable
